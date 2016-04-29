@@ -4,7 +4,7 @@ metadata:
   annotations:
     description: 1&1 Utility Image based on ubuntu 16.04
   creationTimestamp: null
-  name: utility
+  name: utility-ubuntu-16.04
 objects:
 - apiVersion: v1
   kind: Service
@@ -62,7 +62,7 @@ parameters:
 - description: Size of Storage
   displayName: Web directory size
   name: VOLUME_CAPACITY
-  required: true
+  required: false
   value: 5Gi
 - description: Application service name
   displayName: Application service name
