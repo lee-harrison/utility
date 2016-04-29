@@ -7,4 +7,4 @@ RUN \
   DEBIAN_FRONTEND=noninteractive apt-get -y install telnet && \
   DEBIAN_FRONTEND=noninteractive apt-get -y clean && \
   rm -rf /var/lib/apt/lists/*
-CMD ["/bin/bash"]
+CMD ["run"]
