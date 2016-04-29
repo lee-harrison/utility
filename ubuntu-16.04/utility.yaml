@@ -2,16 +2,16 @@ apiVersion: v1
 kind: Template
 metadata:
   annotations:
-    description: 1&1 Apache 2.4 Imagee
+    description: 1&1 Utility Image based on ubuntu 16.04
   creationTimestamp: null
-  name: apache-2.4
+  name: utility
 objects:
 - apiVersion: v1
   kind: Service
   metadata:
     annotations:
-      description: Exposes and load balances the application pods
-    name: apache
+      description: Utility image for troubleshooting
+    name: utility
   spec:
     ports:
     - name: web
@@ -48,7 +48,7 @@ objects:
           test: 'Where does this value end up? #196'
         labels:
           name: ${APP_SERVICE_NAME}
-          service: apache-2.4
+          service: utility
         name: ${APP_SERVICE_NAME}
       spec:
         containers:
@@ -68,7 +68,7 @@ parameters:
   displayName: Application service name
   name: APP_SERVICE_NAME
   required: true
-  from: apache-[a-z]{5}
+  from: ubuntu-[a-z]{5}
   generate: expression
 - description: The exposed hostname that will route to the Apache Server, if left
     blank a value will be defaulted.
