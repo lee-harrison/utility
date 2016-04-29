@@ -1,5 +1,5 @@
-FROM ubuntu:xenial
-MAINTAINER james.wilkins@fasthosts.co.uk
+FROM ubuntu:16.04
+MAINTAINER lee.harrison@fasthosts.com
 RUN \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   DEBIAN_FRONTEND=noninteractive apt-get -y update && \
@@ -11,10 +11,4 @@ RUN \
   mkdir -p /hooks/ && \
   DEBIAN_FRONTEND=noninteractive apt-get -y clean && \
   rm -rf /var/lib/apt/lists/*
-COPY supervisord.conf /etc/supervisor/supervisord.conf
-COPY init/* /init/
-COPY hooks/* /hooks/
-ENTRYPOINT ["/bin/bash", "-e", "/init/entrypoint"]
-CMD ["run"]
-#ENTRYPOINT ["/bin/bash"]
-
+CMD ["/bin/bash"]
