@@ -1,4 +1,4 @@
-FROM docker pull 1and1internet/ubuntu-16.04
+FROM 1and1internet/ubuntu-16.04
 MAINTAINER lee.harrison@fasthosts.com
 RUN \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
